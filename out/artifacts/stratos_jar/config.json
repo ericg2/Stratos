@@ -1,0 +1,11 @@
+{
+  "writeLogToFile": false,
+  "logFilePath": "log.txt",
+  "sqlURL": "jdbc:mysql://127.0.0.1:3306/stratos",
+  "sqlUsername": "<REDACTED>",
+  "sqlPassword": "<REDACTED>",
+  "token": "<REDACTED>",
+  "defaultPrefix": ">>",
+  "maxRSA": "2048",
+  "maxAES": "256"
+}

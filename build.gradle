@@ -1,0 +1,60 @@
+plugins {
+    id 'java'
+}
+
+group 'com.houseofkraft'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+    jcenter()
+
+    maven {
+        url "https://lutece.paris.fr/nexus/content/repositories/lutece_third_party/"
+    }
+
+    //Used for
+    // 'net.sourceforge.jaadec:jaad:0.8.4'
+    // 'jflac:jflac:1.3'
+    maven {
+        url "https://github.com/DV8FromTheWorld/Maven-Repository/raw/master/repo"
+    }
+}
+
+jar {
+    manifest {
+        attributes 'Implementation-Title': 'Gradle Quickstart',
+                'Implementation-Version': getArchiveVersion(),
+                'Main-Class': 'com.houseofkraft.Stratos'
+    }
+}
+
+
+
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+
+
+    // https://mvnrepository.com/artifact/org.jdbi/jdbi3-core
+    compile group: 'org.jdbi', name: 'jdbi3-core', version: '3.18.0'
+
+    implementation group: 'com.github.tomas-langer', name: 'chalk', version: '1.0.2'
+    implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.22'
+    //implementation 'com.googlecode.json-simple:json-simple:1.1.1'
+
+    // https://mvnrepository.com/artifact/org.slf4j/slf4j-api
+    implementation group: 'org.slf4j', name: 'slf4j-simple', version: '1.7.29'
+
+
+
+    implementation fileTree(include: ['*.jar'], dir: 'lib')
+
+    apply plugin: 'idea'
+
+}
+
+test {
+    useJUnitPlatform()
+}
